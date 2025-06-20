@@ -1,9 +1,5 @@
-# FrameINO
 
-
-
-
-## Frame In-N-Out: Unbounded Controllable Image-to-Video Generation
+# Frame In-N-Out: Unbounded Controllable Image-to-Video Generation
 
 [![Paper](https://img.shields.io/badge/arXiv-Paper-b31b1b?logo=arxiv&logoColor=white)](https://arxiv.org/abs/2505.21491)
 [![Website](https://img.shields.io/badge/Project-Website-pink?logo=googlechrome&logoColor=white)](https://uva-computer-vision-lab.github.io/Frame-In-N-Out/)
@@ -15,8 +11,8 @@ We propose Frame In-N-Out, a controllable image-to-video generation framework wh
 
 ## <a name="Update"></a>Update 🔥🔥🔥
 - [x] Release the paper
-- [ ] Release the model weights
+- [ ] Release the model weights (Wan2.1)
+- [ ] Release the Wan2.1 version of ours
 - [ ] Gradio demo (with online)
 - [ ] Release the Training Code
-- [ ] Release the MetaData
-- [ ] Release the Wan2.1 version of ours
+- [ ] Release the Processed Training Dataset
