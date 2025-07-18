@@ -11,8 +11,7 @@ We propose Frame In-N-Out, a controllable image-to-video generation framework wh
 
 ## <a name="Update"></a>Update 🔥🔥🔥
 - [x] Release the paper
-- [ ] Release the model weights (Wan2.1)
-- [ ] Release the Wan2.1 version of ours
+- [ ] Release the model weights (CogVideoX)
 - [ ] Gradio demo (with online)
 - [ ] Release the Training Code
 - [ ] Release the Processed Training Dataset
