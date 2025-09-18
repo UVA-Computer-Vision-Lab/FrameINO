@@ -1,5 +1,5 @@
 
-# Frame In-N-Out: Unbounded Controllable Image-to-Video Generation
+# Frame In-N-Out: Unbounded Controllable Image-to-Video Generation (NeurIPS 2025)
 
 [![Paper](https://img.shields.io/badge/arXiv-Paper-b31b1b?logo=arxiv&logoColor=white)](https://arxiv.org/abs/2505.21491)
 [![Website](https://img.shields.io/badge/Project-Website-pink?logo=googlechrome&logoColor=white)](https://uva-computer-vision-lab.github.io/Frame-In-N-Out/)
