@@ -31,6 +31,7 @@ We propose Frame In-N-Out, a controllable Image-to-Video generation Diffusion Tr
 - [x] Gradio App demo 
 - [x] Release the Evaluation Code and Metrics
 - [x] Release the Training Code with a short sample dataset
+- [ ] HF Space Demo.
 - [ ] Release A variable resolution trained weights as V1.6.
 - [ ] Release the Pre-Processing Code and possibly the full Processed metadata.
 
