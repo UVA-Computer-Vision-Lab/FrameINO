@@ -86,7 +86,7 @@ NOTE: We recommend to open **Running on public URL:** choice, which is more stab
 
 TBD. We might use a separate github repo to collect all solutions because curation involves too many different packages and setup.
 
-For a small quick mini-dataset (including training + validation + evaluation), you can download by: 
+For a small quick mini-dataset (including demo training + validation + evaluation), you can download by: 
 ```shell
   # Recommend to set --local-dir as ../FrameINO_data, which is the default fixed dir in most files
   hf download uva-cv-lab/FrameINO_data --repo-type dataset --local-dir ../FrameINO_data
