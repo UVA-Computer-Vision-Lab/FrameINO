@@ -20,7 +20,7 @@ We propose Frame In-N-Out, a controllable Image-to-Video generation Diffusion Tr
 
 
 
-🔥 [Update](#Update) **|** 👀 [**Visualization**](#Visualization)  **|** 🔧 [Installation](#installation) **|** ⚡ [Test](#fast_inference)  **|** 🧩 [Dataset Curation](#curation)  **|** 🔥[Train](#training)  **|** 💻 [evaluation](#evaluation)
+🔥 [Update](#Update) **|** 👀 [**Visualization**](#Visualization)  **|** 🔧 [Installation](#installation) **|** ⚡ [Test](#fast_inference)  **|** 🧩 [Dataset Curation](#dataset_curation)  **|** 🔥[Train](#training)  **|** 💻 [evaluation](#evaluation)
 
 
 
@@ -40,7 +40,7 @@ We propose Frame In-N-Out, a controllable Image-to-Video generation Diffusion Tr
 
 
 
-## <a name="Intro"></a> Brief Intro Video 👀
+## <a name="Visualization"></a> Brief Intro Video 👀
 ---
 
 https://github.com/user-attachments/assets/0fabd2a4-9d3b-4148-bc04-6fc03c53caca
@@ -167,8 +167,9 @@ Use **--use_8BitAdam True** for 8Bit Adam (based on your hardware support)
 
 ## <a name="evaluation"></a> Evaluation 💻
 
-The evaluation dataloader is slightly different from the training version before. The dataloader we used in this stage is based on our paper setting (using the v1.0 weight at than time). 
-<!-- As stated in previous section: after submission, we improve quite a lot on the dataset curaiton and this leads to slight difference. -->
+The evaluation dataloader is slightly different from the training version before. 
+The dataloader we use in this stage is based on our paper setting (using the v1.0 paper weight at the same time). 
+<!-- As stated in the previous section: after submission, we improve quite a lot on the dataset curaiton and this leads to slight difference. -->
 
 For Frame In:
 ```shell
@@ -183,7 +184,7 @@ For Frame Out:
 
 
 For the evaluation metrics, we provide our modified version of Traj Error, Video Segmentation on Mean Absolute Error, Relative DINO matching, and VLM-judged In-N-Out success rate.
-Check **evaluation/mass_evalution.py** and then modify the setting there (like number of frames, path, metrics for Frame In/Out) based on the needs.
+Check **evaluation/mass_evalution.py** and then modify the setting there (like the number of frames, path, metrics for Frame In/Out) based on the needs.
 
 
 
