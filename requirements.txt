@@ -1,0 +1,24 @@
+pandas
+tqdm
+opencv-python
+pyiqa
+numpy==1.26.0
+ffmpeg-python
+bitsandbytes
+pyarrow
+omegaconf
+peft>=0.15.0
+transformers>=4.56.2      # Install in the newest version
+git+https://github.com/huggingface/diffusers.git
+sentencepiece
+qwen-vl-utils[decord]==0.0.8
+scikit-learn
+matplotlib
+gradio
+imageio-ffmpeg
+bitsandbytes
+git+https://github.com/facebookresearch/segment-anything.git
+git+https://github.com/facebookresearch/sam2.git
+accelerate
+hf-transfer
+

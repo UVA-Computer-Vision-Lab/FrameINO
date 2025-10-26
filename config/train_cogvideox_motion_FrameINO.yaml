@@ -1,0 +1,96 @@
+
+experiment_name: CogVideoX_5B_Motion_FINO_480P
+
+# Model Setting
+base_model_path: ../pretrained/CogVideoX_5B_I2V
+pretrained_transformer_path:  uva-cv-lab/FrameINO_CogVideoX_Stage1_Motion_v1.0    # Use the stage1 weight here; if you use your trained weight, it should go to the transformer folder (TODO: needs to check this)
+enable_slicing: True    
+enable_tiling: True     
+use_learned_positional_embeddings: True
+use_rotary_positional_embeddings: True
+
+
+
+# Dataset Setting
+download_folder_path: ../FrameINO_data/   # Set the downloaded folder path, all the other csv will be read automatically
+train_csv_relative_path:        dataset_csv_files/train_sample_short_dataset        # No need to change, Fixed
+train_video_relative_path:      video_dataset/train_sample_dataset                  # No need to change, Fixed
+train_ID_relative_path:         video_dataset/train_ID_FrameIn                      # No need to change, Fixed
+validation_csv_relative_path:   dataset_csv_files/val_sample_short_dataset          # No need to change, Fixed
+validation_video_relative_path: video_dataset/val_sample_dataset                    # No need to change, Fixed
+validation_ID_relative_path:    video_dataset/val_ID_FrameIn                        # No need to change, Fixed
+dataloader_num_workers: 4   # This should be per GPU
+# height_range: [480, 704]        # Height Range; By slightly modify the dataloader code and use this setting, we can use variable resolution training
+target_height: 480
+target_width: 720
+sample_accelerate_factor: 2       # Imitate 12FPS we have set before.
+train_frame_num_range: [49, 49]   # Number of frames for the trianing, required to be 4N+1
+min_train_frame_num: 49           # If it is less than this number, the dataloader will raise Exception and skip to the next one valid!   We recommand CogVideoX to use exactly 49 frames. 
+
+
+# Motion Setting
+dot_radius: 6                     # This is set with respect to 384 height pixel, will be adjust based on the height change
+point_keep_ratio_regular: 0.33    # Less points than motion control; The Ratio of points left for points inside the region box; For Non-main Object Motion
+faster_motion_prob: 0.0           # Whether we support faster (~8FPS), 0.0 - 0.1 is also recomended (0.0 by default).
+
+
+# Frame In and Out Setting
+drop_FrameIn_prob: 0.15           # This is the cases where we only has FrameOut occur, FrameIn will be whole whilte place holder (Recommend: 0.15)
+point_keep_ratio_ID: 0.33         # The Ratio of points left for new ID introduced
+
+
+# Denoise + Text Setting
+noised_image_dropout: 0.05        # No First Frame Setting, becomes T2V
+empty_text_prompt: False          # FOR TI2V, we needs to use text prompt
+text_mask_ratio: 0.05             # Follow InstructPix2Pix
+max_text_seq_length: 226
+
+
+# Training Setting
+resume_from_checkpoint: False     # latest / False; latest will automatically fetch the newest checkpoint
+max_train_steps: 1002             # Based on the needs; This is just a demo dataset, so training low is not needed
+train_batch_size: 1               # batch size per GPU 
+gradient_accumulation_steps: 2    # This should be set to 1 usually.
+checkpointing_steps: 2000         # Check point frequeuncy, don't recommend to be too frequent
+checkpoints_total_limit: 8        # Transformer are too large, this size is too big (~32 GB per checkpoint)
+mixed_precision: bf16             # CogvideoX official code usaully use bf16
+gradient_checkpointing: True      # This will save the memory but slower; Even if I have 80GB memory, this is still needed to open; else, OOM
+seed:                             # 如果这里set seed了；你每次resume都跟resume前的data 读取顺序完全一致；如果连一个epoch都没train，那就每次同样数据循环
+output_folder: checkpoints/
+logging_name: logging
+nccl_timeout: 1800
+
+
+# Validation Setting
+validation_step: 2000         # Don't set too frequent, which will be very resource consuming
+first_iter_validation: True   # Whether we do the first iter validation
+num_inference_steps: 50
+
+
+
+# Learning Rate and Optimizer
+optimizer: adamw              # Choose between ["adam", "adamw", "prodigy"]
+learning_rate: 2e-5           # 1e-4 might be too big
+scale_lr: False                    
+lr_scheduler: constant_with_warmup        # Most cases should be constant
+adam_beta1: 0.9
+adam_beta2: 0.95              # In the past, this used to be 0.999; smaller than usual
+adam_beta3: 0.98
+lr_power: 1.0
+lr_num_cycles: 1.0    
+max_grad_norm: 1.0        
+prodigy_beta3:                # Coefficients for computing the Prodigy optimizer's stepsize using running averages. If set to None, uses the value of square root of beta2
+# use_8bit_adam: False          # This saves a lot of GPU memory, but slightly slower
+adam_weight_decay: 1e-04
+adam_epsilon: 1e-08
+lr_warmup_steps: 400
+
+
+
+# Other Setting
+report_to: tensorboard
+allow_tf32: True
+revision: 
+variant:
+cache_dir:
+tracker_name:
