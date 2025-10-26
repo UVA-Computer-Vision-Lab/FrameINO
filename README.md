@@ -74,6 +74,7 @@ Gradio Interactive demo is available by
   python app.py
 ```
 <!-- The Gradio Demo online is availabe at: -->
+This will costs 20GB of memory in average (peak: 26GB).
 NOTE: This will automatically download pretrained weight to the HF cache and use our v1.5 Wan2.2-5B weight by default.
 NOTE: We recommend to open **Running on public URL:** choice, which is more stable compared to the local URL option.
 
@@ -86,11 +87,13 @@ NOTE: We recommend to open **Running on public URL:** choice, which is more stab
 
 TBD. We might use a separate github repo to collect all solutions because curation involves too many different packages and setup.
 
-For a small quick mini-dataset (including demo training + validation + evaluation), you can download by: 
+For a small quick **mini**-dataset (including evaluation), you can download by: 
 ```shell
   # Recommend to set --local-dir as ../FrameINO_data, which is the default fixed dir in most files
   hf download uva-cv-lab/FrameINO_data --repo-type dataset --local-dir ../FrameINO_data
 ```
+This dataset includes 300 train videos and the corresponding csv label files (text prompt, motion traj, filtering criteria) for data loading (as well as 20 videos for validation in training). 
+The evaluation dataset for both Frame In and Frame Out benchmark can be found inside here.
 
 
 

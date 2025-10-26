@@ -89,7 +89,7 @@ MARKDOWN = \
         PLEASE ENSURE that <b>Canvas HEIGHT = 704</b> and <b>Canvas WIDTH = 1280</b> for the best performance (current training resolution). <br>
     3️⃣ Click <b>Build the Canvas</b>.  <br>
     4️⃣ Provide the trajectory of the main object in the canvas by clicking on the <b>Expanded Canvas</b>. <br>
-    5️⃣ Provide the ID reference image and its trajectory (optional). <br>
+    5️⃣ Provide the ID reference image and its trajectory (optional). Also, write a detailed <b>text prompt</b>. <br>
     Click the <b>Generate</b> button to start the Video Generation. <br>
 
     
