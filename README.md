@@ -20,7 +20,7 @@ We propose Frame In-N-Out, a controllable Image-to-Video generation Diffusion Tr
 
 
 
-🔥 [Update](#Update) **|** 👀 [**Visualization**](#Visualization)  **|** 🔧 [Installation](#installation) **|** ⚡ [Test](#fast_inference)  **|** 🧩 [Dataset Curation](#dataset_curation)  **|** 🔥[Train](#training)  **|** 💻 [evaluation](#evaluation)
+🔥 [Update](#Update) **|** 👀 [**Visualization**](#Visualization)  **|** 🔧 [Installation](#installation) **|** ⚡ [Test](#fast_inference)  **|** 🤗 [Model Zoo](#model_zoo) **|** 🧩 [Dataset Curation](#dataset_curation)  **|** 🔥[Train](#training)  **|** 💻 [evaluation](#evaluation)
 
 
 
@@ -82,12 +82,29 @@ NOTE: We recommend to open **Running on public URL:** choice, which is more stab
 
 
 
+## <a name="model_zoo"></a> Model Zoo 🤗
+
+We provide two forms of weight for Frame In-N-Out. The first one is what we used in our paper, CogVideoX-I2V-5B. 
+Meanwhile, this summer, we see the Wan2.2-TI2V-5B, which is also applicable for full finetune in A100. Thus, we do some modifications to their architecture and training process and then introduce it here. Training code is released.
+
+For the v1.5 version, we curate the dataset again, by optimizing the scene cut selection mechanism (leave more cases instead of directly filtering out), replacing CUT3R with SpatialTrackerV2 (SOTA 3D camera estimation model), a strong motion filtering mechanism, a clear start detection, and more small changes. Meanwhile, we discard the Webvid dataset in the training (which has a watermark) and introduce partial [OpenS2V](https://huggingface.co/datasets/BestWishYsh/OpenS2V-5M) in the training.
+
+| Model                                                          | Description                    | Huggingface                                                                                     |
+|--------------------------------------------------------------- | -------------------------------| ------------------------------------------------------------------------------------------------| 
+| CogVideoX-I2V-5B V1.0 (Stage 1 - Motion Control)               |  Paper Weight v1.0             |     [Download](https://huggingface.co/uva-cv-lab/FrameINO_CogVideoX_Stage1_Motion_v1.0)         |
+| CogVideoX-I2V-5B  (Stage 2 - Motion + In-N-Out Control)        |  Paper Weight v1.0             |     [Download](https://huggingface.co/uva-cv-lab/FrameINO_CogVideoX_Stage2_MotionINO_v1.0)      |
+| Wan2.2-TI2V-5B  (Stage 1 - Motion Control)                     |  New Weight v1.5 on 704P       |     [Download](https://huggingface.co/uva-cv-lab/FrameINO_Wan2.2_5B_Stage1_Motion_v1.5)         |
+| Wan2.2-TI2V-5B  (Stage 2 - Motion + In-N-Out Control)          |  New Weight v1.5 on 704P       |     [Download](https://huggingface.co/uva-cv-lab/FrameINO_Wan2.2_5B_Stage2_MotionINO_v1.5)      |
+
+
+
+
 
 ## <a name="dataset_curation"></a> Dataset Curation 🧩
 
 TBD. We might use a separate github repo to collect all solutions because curation involves too many different packages and setup.
 
-For a small quick **mini**-dataset (including evaluation), you can download by: 
+For a small quick **mini**-dataset (demo training dataset), you can download by: 
 ```shell
   # Recommend to set --local-dir as ../FrameINO_data, which is the default fixed dir in most files
   hf download uva-cv-lab/FrameINO_data --repo-type dataset --local-dir ../FrameINO_data
@@ -173,19 +190,21 @@ Use **--use_8BitAdam True** for 8Bit Adam (based on your hardware support)
 
 The evaluation dataloader is slightly different from the training version before. 
 The dataloader we use in this stage is based on our paper setting (using the v1.0 paper weight at the same time). 
-<!-- As stated in the previous section: after submission, we improve quite a lot on the dataset curaiton and this leads to slight difference. -->
+The evaluation dataset can be downlaoded based on the instruciton from [Dataset Curation](#dataset_curation).
+
+
 
 For Frame In:
 ```shell
   python test_code/run_cogvideox_FrameIn_mass_evaluation.py
 ```
-
+Please check **Frequently Changed Setting** inside the code to double-check if your setting is aligned (like the pre-trained model path and the evaluation dataset).
  
 For Frame Out:
 ```shell
   python test_code/run_cogvideox_FrameOut_mass_evaluation.py
 ```
-
+Please check **Frequently Changed Setting** inside the code to double-check if your setting is aligned (like the pre-trained model path and the evaluation dataset).
 
 For the evaluation metrics, we provide our modified version of Traj Error, Video Segmentation on Mean Absolute Error, Relative DINO matching, and VLM-judged In-N-Out success rate.
 Check **evaluation/mass_evalution.py** and then modify the setting there (like the number of frames, path, metrics for Frame In/Out) based on the needs.
