@@ -171,9 +171,11 @@ pipe.enable_model_cpu_offload()
 ########################################################## Other Auxiliary Func #################################################################
 
 # # Init SAM model
-model_type = "vit_l"
-sam_pretrained_path = "../pretrained/sam_vit_l_0b3195.pth"
-sam = sam_model_registry[model_type](checkpoint=sam_pretrained_path).to(device="cuda")
+model_type = "vit_h"        #vit-h has the most number of paramter
+sam_pretrained_path = "pretrained/sam_vit_h_4b8939.pth"
+if not os.path.exists(sam_pretrained_path):
+    os.system("wget https://dl.fbaipublicfiles.com/segment_anything/sam_vit_h_4b8939.pth -P pretrained/")
+sam = sam_model_registry[model_type](checkpoint = sam_pretrained_path).to(device="cuda")
 sam_predictor = SamPredictor(sam)     # There is a lot of setting here
 
 #####################################################################################################################################

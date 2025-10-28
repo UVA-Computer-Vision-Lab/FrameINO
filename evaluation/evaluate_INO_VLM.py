@@ -33,9 +33,7 @@ def INO_VLM_evaluation(data_parent_path, region_target_height, region_target_wid
 
 
     # Prepare the pretrained weight
-    model_path = "../pretrained/Qwen2.5-VL-32B-Instruct" 
-    if not os.path.exists(model_path):
-        model_path = "Qwen/Qwen2.5-VL-32B-Instruct"
+    vlm_model_path = "Qwen/Qwen2.5-VL-32B-Instruct"
 
 
     # Prepare the VLM Setting
@@ -73,7 +71,7 @@ def INO_VLM_evaluation(data_parent_path, region_target_height, region_target_wid
 
 
     # Init the QWen VLM Model
-    processor = AutoProcessor.from_pretrained(model_path)
+    processor = AutoProcessor.from_pretrained(vlm_model_path)
     bnb_config = BitsAndBytesConfig(
                                         load_in_4bit=True,
                                         bnb_4bit_compute_dtype=torch.float16,  # Use float16 for computations
@@ -81,7 +79,7 @@ def INO_VLM_evaluation(data_parent_path, region_target_height, region_target_wid
                                         bnb_4bit_quant_type='nf4',  # NormalFloat4 quantization
                                     )
     model = Qwen2_5_VLForConditionalGeneration.from_pretrained(
-                                                                model_path, 
+                                                                vlm_model_path, 
                                                                 torch_dtype="auto", device_map="auto",
                                                                 quantization_config=bnb_config,
                                                             )

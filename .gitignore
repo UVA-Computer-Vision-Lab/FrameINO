@@ -30,3 +30,4 @@ preprocess/sam2_code
 !requirements.txt
 !requirements/*
 !__assets__/*
+!__assets__/page/*

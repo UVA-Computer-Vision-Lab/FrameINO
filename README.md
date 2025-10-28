@@ -1,6 +1,6 @@
 
 <p align="center">
-    <img src="__assets__/logo.png" height="100">
+    <img src="__assets__/page/logo.png" height="100">
 </p>
 
 
@@ -50,6 +50,28 @@ https://github.com/user-attachments/assets/0fabd2a4-9d3b-4148-bc04-6fc03c53caca
 
 
 
+<!-- <table style="width: 100%; border-collapse: collapse; text-align: center; border: 1px solid #ccc;">
+  <tr>
+    <th style="text-align: center;">
+      <strong>Visual Canvas</strong>
+    </th>
+    <th style="text-align: center;">
+      <strong>Wan2.2-based Frame In-N-Out (v1.5)</strong>
+    </th>
+  </tr>
+
+  <tr>
+    <td style="text-align: center; vertical-align: middle;">
+      <img src="__assets__/page/example1_visual_canvas.png" alt="Image 0" style="height: 300px;">
+    </td>
+    <td style="text-align: center; vertical-align: middle;">
+      <img src="__assets__/page/example1_wan.gif" alt="Image 0" style="height: 300px;">
+    </td>
+  </tr>
+
+</table> -->
+
+
 
 
 
@@ -75,7 +97,7 @@ Gradio Interactive demo is available by
 ```
 
 <!-- The Gradio Demo online is availabe at: -->
-This will costs 20GB of memory in average (peak: 26GB).
+This will costs 21GB of memory in average (peak: 26GB). We will also create a folder starts with **tmp_app_example_** in your local folder. There, you could find all conditions (including segmented ID and the padded generation result in the full canvas).
 
 NOTE: This will automatically download pretrained weight to the HF cache and use our v1.5 Wan2.2-5B weight by default.
 
@@ -102,26 +124,6 @@ For the v1.5 version, we curate the dataset again, by optimizing the scene cut s
 
 
 
-<!-- <table style="width: 100%; border-collapse: collapse; text-align: center; border: 1px solid #ccc;">
-  <tr>
-    <th style="text-align: center;">
-      <strong>Input Image & Trajectory</strong>
-    </th>
-    <th style="text-align: center;">
-      <strong>Generated Videos (Superimposed Trajectories)</strong>
-    </th>
-  </tr>
-
-  <tr>
-    <td style="text-align: center; vertical-align: middle;">
-      <img src="assets/examples/00.jpg" alt="Image 0" style="height: 240px;">
-    </td>
-    <td style="text-align: center; vertical-align: middle;">
-      <img src="assets/examples/00.gif" alt="Image 0" style="height: 240px;">
-    </td>
-  </tr>
-
-</table> -->
 
 
 
@@ -132,8 +134,8 @@ TBD. We might use a separate github repo to collect all solutions because curati
 
 For a small quick **mini**-dataset (demo training dataset), you can download by: 
 ```shell
-  # Recommend to set --local-dir as ../FrameINO_data, which is the default fixed dir in most files
-  hf download uva-cv-lab/FrameINO_data --repo-type dataset --local-dir ../FrameINO_data
+  # Recommend to set --local-dir as FrameINO_data, which is the default fixed dir in most files
+  hf download uva-cv-lab/FrameINO_data --repo-type dataset --local-dir FrameINO_data
 ```
 This dataset includes 300 train videos and the corresponding csv label files (text prompt, motion traj, filtering criteria) for data loading (as well as 20 videos for validation in training). 
 The evaluation dataset for both Frame In and Frame Out benchmark can be found inside here.
@@ -151,16 +153,6 @@ The training is slightly different on the dataloader part from what is stated in
 We also modified and trained a Wan2.2-5B version. 
 This is because we found that WAN2.2-5B might be an interesting model and we spent quite a lot of time after the submission to optimize the training and, more importantly, curation stage. We prefer the version presented below and will be based on this.
 
-
-### Download Pretrained weight 
-
-```shell
-huggingface-cli download THUDM/CogVideoX-5b-I2V --local-dir ../pretrained/CogVideoX_5B_I2V      # CogVideoX-5B
-
-huggingface-cli download Wan-AI/Wan2.2-TI2V-5B-Diffusers --local-dir ../pretrained/Wan2.2-TI2V-5B-Diffusers     # Wan2.2-5B
-```
-If you download a different directory, you might need to edit **base_model_path** from **config/XXX.yaml**.
-Meanwhile, **config/XXX.yaml** control all paramters needed to change. Please read it before executing the following code.
 
 
 ### Stage1 Motion Training 

@@ -3,7 +3,7 @@ experiment_name: Wan_5B_Motion_704P
 
 
 # Model Setting
-base_model_path: ../pretrained/Wan2.2-TI2V-5B-Diffusers
+base_model_path: Wan-AI/Wan2.2-TI2V-5B-Diffusers
 pretrained_transformer_path:    # No need to set; if you set, this will load transformer model with non-default Wan transformer
 enable_slicing: True    
 enable_tiling: True     
@@ -11,7 +11,7 @@ enable_tiling: True
 
 
 # Dataset Setting
-download_folder_path: ../FrameINO_data/   # Set the downloaded folder path, all the other csv will be read automatically
+download_folder_path: FrameINO_data/   # Set the downloaded folder path, all the other csv will be read automatically
 train_csv_relative_path:        dataset_csv_files/train_sample_short_dataset        # No need to change, Fixed
 train_video_relative_path:      video_dataset/train_sample_dataset                  # No need to change, Fixed
 validation_csv_relative_path:   dataset_csv_files/val_sample_short_dataset          # No need to change, Fixed

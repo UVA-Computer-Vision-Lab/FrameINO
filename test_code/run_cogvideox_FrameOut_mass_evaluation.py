@@ -36,9 +36,9 @@ from data_loader.video_dataset_motion_FrameINO_old import VideoDataset_Motion_Fr
 if __name__ == "__main__":
 
     # Frequently Changed Setting
-    base_model_id = "../pretrained/CogVideoX_5B_I2V"                                    # Set the pretrained CogVideoX
+    base_model_id = "zai-org/CogVideoX-5b-I2V"                                    # Set the pretrained CogVideoX
     transformer_ckpt_path = "uva-cv-lab/FrameINO_CogVideoX_Stage2_MotionINO_v1.0"       # Path of the model weights
-    download_folder_path = "../FrameINO_data"                                           # Set the downloaded folder path, all the other csv will be read automatically
+    download_folder_path = "FrameINO_data"                                           # Set the downloaded folder path, all the other csv will be read automatically
 
 
     # Output Dir  

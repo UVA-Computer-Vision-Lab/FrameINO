@@ -44,7 +44,7 @@ def mass_evaluation(data_parent_path, evaluation_metrics, common_target_height=2
         elif evaluation_metric == "Relative_DINO":      # Will Downlaod Dino-V2 automatically
             result_collections["Relative_DINO"] = INO_DINO_evaluation(data_parent_path, common_target_height, common_target_width, test_num_frames)
 
-        elif evaluation_metric == "INO_VLM":            # Will Use Qwen2.5VL-32B from "../pretrained" folder; If not exists, will download Qwen/Qwen2.5-VL-32B-Instruct to HF cache
+        elif evaluation_metric == "INO_VLM":            # Will Download Qwen/Qwen2.5-VL-32B-Instruct to HF cache
             result_collections["INO_VLM"] = INO_VLM_evaluation(data_parent_path, common_target_height, common_target_width, is_frame_in=is_frame_in)        # No need to write number of frames (because VLM is limited)
 
         else:
@@ -71,7 +71,7 @@ def mass_evaluation(data_parent_path, evaluation_metrics, common_target_height=2
 if __name__ == "__main__":
 
     # Basic Setting
-    data_parent_path = "../FINO3/results_FrameIn"               # Path to the generated results
+    data_parent_path = "/PATH/TO/GENRATED/RESULTS"               # Path to the generated results
     common_target_height, common_target_width, test_num_frames = 256, 384, 49       # test_num_frames we use 49 for FrameIn; 14 for Frame Out (due to base model constrained) ; BTW, VLM only use 14 frames (due to compute concern)
     is_frame_in = True     # If it is not FrameIn, then it is FrameOut Setting; Please set this based on the needs
 
