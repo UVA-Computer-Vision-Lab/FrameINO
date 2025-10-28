@@ -73,10 +73,13 @@ Gradio Interactive demo is available by
 ```shell
   python app.py
 ```
+
 <!-- The Gradio Demo online is availabe at: -->
 This will costs 20GB of memory in average (peak: 26GB).
+
 NOTE: This will automatically download pretrained weight to the HF cache and use our v1.5 Wan2.2-5B weight by default.
-NOTE: We recommend to open **Running on public URL:** choice, which is more stable compared to the local URL option.
+
+NOTE: We recommend to open **Running on public URL** choice, which is more stable compared to the local URL option.
 
 
 
@@ -96,6 +99,29 @@ For the v1.5 version, we curate the dataset again, by optimizing the scene cut s
 | Wan2.2-TI2V-5B  (Stage 1 - Motion Control)                     |  New Weight v1.5 on 704P       |     [Download](https://huggingface.co/uva-cv-lab/FrameINO_Wan2.2_5B_Stage1_Motion_v1.5)         |
 | Wan2.2-TI2V-5B  (Stage 2 - Motion + In-N-Out Control)          |  New Weight v1.5 on 704P       |     [Download](https://huggingface.co/uva-cv-lab/FrameINO_Wan2.2_5B_Stage2_MotionINO_v1.5)      |
 
+
+
+
+<!-- <table style="width: 100%; border-collapse: collapse; text-align: center; border: 1px solid #ccc;">
+  <tr>
+    <th style="text-align: center;">
+      <strong>Input Image & Trajectory</strong>
+    </th>
+    <th style="text-align: center;">
+      <strong>Generated Videos (Superimposed Trajectories)</strong>
+    </th>
+  </tr>
+
+  <tr>
+    <td style="text-align: center; vertical-align: middle;">
+      <img src="assets/examples/00.jpg" alt="Image 0" style="height: 240px;">
+    </td>
+    <td style="text-align: center; vertical-align: middle;">
+      <img src="assets/examples/00.gif" alt="Image 0" style="height: 240px;">
+    </td>
+  </tr>
+
+</table> -->
 
 
 
