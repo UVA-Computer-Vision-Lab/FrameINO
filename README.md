@@ -35,7 +35,7 @@ We propose Frame In-N-Out, a controllable Image-to-Video generation Diffusion Tr
 - [ ] Release A variable resolution trained weights as V1.6.
 - [ ] Release the Pre-Processing Code and possibly the full Processed metadata.
 
-:star: **If you like Frame In-N-Out, please help star this repo. Thanks!** :hugs:
+:star: **If you like Frame In-N-Out, please help ⭐⭐star⭐⭐ this repo. Thanks!** :hugs:
 
 
 
