@@ -140,6 +140,8 @@ For a small quick **mini**-dataset (demo training dataset), you can download by:
 This dataset includes 300 train videos and the corresponding csv label files (text prompt, motion traj, filtering criteria) for data loading (as well as 20 videos for validation in training). 
 The evaluation dataset for both Frame In and Frame Out benchmark can be found inside here.
 
+NOTE: Please log in to our [huggingface page](https://huggingface.co/datasets/uva-cv-lab/FrameINO_data) and agree to the Gated Access.
+
 
 
 
