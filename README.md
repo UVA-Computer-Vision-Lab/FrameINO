@@ -68,7 +68,7 @@ https://github.com/user-attachments/assets/0fabd2a4-9d3b-4148-bc04-6fc03c53caca
       <img src="__assets__/page/example1_visual_canvas.png" alt="Image 0" style="height: 300px;">
     </td>
     <td style="text-align: center; vertical-align: middle;">
-      <img src="__assets__/sheep.png" alt="Image 0" style="height: 150px;">
+      <img src="__assets__/sheep.png" alt="Image 0" style="height: 100px;">
     </td>
     <td style="text-align: center; vertical-align: middle;">
       <img src="__assets__/page/example1_wan.gif" alt="Image 0" style="height: 300px;">
@@ -80,7 +80,7 @@ https://github.com/user-attachments/assets/0fabd2a4-9d3b-4148-bc04-6fc03c53caca
       <img src="__assets__/page/example2_visual_canvas.png" alt="Image 0" style="height: 300px;">
     </td>
     <td style="text-align: center; vertical-align: middle;">
-      <img src="__assets__/hand2.png" alt="Image 0" style="height: 150px;">
+      <img src="__assets__/hand2.png" alt="Image 0" style="height: 100px;">
     </td>
     <td style="text-align: center; vertical-align: middle;">
       <img src="__assets__/page/example2_wan.gif" alt="Image 0" style="height: 300px;">
