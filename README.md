@@ -49,11 +49,14 @@ https://github.com/user-attachments/assets/0fabd2a4-9d3b-4148-bc04-6fc03c53caca
 ---
 
 
-
-<!-- <table style="width: 100%; border-collapse: collapse; text-align: center; border: 1px solid #ccc;">
+**Wan2.2-5B on Frame In-N-Out:**
+<table style="width: 100%; border-collapse: collapse; text-align: center; border: 1px solid #ccc;">
   <tr>
     <th style="text-align: center;">
       <strong>Visual Canvas</strong>
+    </th>
+    <th style="text-align: center;">
+      <strong>ID Reference</strong>
     </th>
     <th style="text-align: center;">
       <strong>Wan2.2-based Frame In-N-Out (v1.5)</strong>
@@ -65,11 +68,26 @@ https://github.com/user-attachments/assets/0fabd2a4-9d3b-4148-bc04-6fc03c53caca
       <img src="__assets__/page/example1_visual_canvas.png" alt="Image 0" style="height: 300px;">
     </td>
     <td style="text-align: center; vertical-align: middle;">
+      <img src="__assets__/sheep.png" alt="Image 0" style="height: 150px;">
+    </td>
+    <td style="text-align: center; vertical-align: middle;">
       <img src="__assets__/page/example1_wan.gif" alt="Image 0" style="height: 300px;">
     </td>
   </tr>
 
-</table> -->
+  <tr>
+    <td style="text-align: center; vertical-align: middle;">
+      <img src="__assets__/page/example2_visual_canvas.png" alt="Image 0" style="height: 300px;">
+    </td>
+    <td style="text-align: center; vertical-align: middle;">
+      <img src="__assets__/hand2.png" alt="Image 0" style="height: 150px;">
+    </td>
+    <td style="text-align: center; vertical-align: middle;">
+      <img src="__assets__/page/example2_wan.gif" alt="Image 0" style="height: 300px;">
+    </td>
+  </tr>
+
+</table>
 
 
 
