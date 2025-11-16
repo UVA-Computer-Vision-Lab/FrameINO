@@ -314,6 +314,13 @@ def build_canvas(input_image_path, resized_height, resized_width, top_left_heigh
     visual_canvas = np.full((expand_height, expand_width, 3), canvas_color, dtype=np.uint8)
 
 
+    # Sanity Check 
+    if expand_height % 32 != 0:
+        raise gr.Error("The Height of resized_height + top_left_height + bottom_right_height must be divisible by 32!")
+    if expand_width % 32 != 0:
+        raise gr.Error("The Width of resized_width + top_left_width + bottom_right_width must be divisible by 32!")
+
+
     # Draw the Region Box Region (Original Resolution)
     bottom_len = inference_canvas.shape[0] - bottom_right_height
     right_len = inference_canvas.shape[1] - bottom_right_width
@@ -323,13 +330,6 @@ def build_canvas(input_image_path, resized_height, resized_width, top_left_heigh
 
     # Resize to the uniform height and width
     visual_canvas = cv2.resize(visual_canvas, (uniform_width, uniform_height), interpolation = cv2.INTER_AREA)
-
-
-
-
-
-    # TODO: Should Check if the height and width is the multiplier of 32 and then if the resolution is preferred.
-
 
 
 
