@@ -31,9 +31,9 @@ We propose Frame In-N-Out, a controllable Image-to-Video generation Diffusion Tr
 - [x] Gradio App demo 
 - [x] Release the Evaluation Code and Metrics
 - [x] Release the Training Code with a short sample dataset
-- [ ] HF Space Demo.
-- [ ] Release A variable resolution trained weights as V1.6.
-- [ ] Release the Pre-Processing Code and possibly the full Processed metadata.
+- [x] Release Arbitrary Resolution-trained Wan2.2 weights, denoted as V1.6
+- [ ] HF Space Demo
+- [ ] Release the Pre-Processing Code and possibly the full Processed metadata
 
 :star: **If you like Frame In-N-Out, please help ⭐⭐star⭐⭐ this repo. Thanks!** :hugs:
 
@@ -138,6 +138,7 @@ For the v1.5 version, we curate the dataset again, by optimizing the scene cut s
 | CogVideoX-I2V-5B  (Stage 2 - Motion + In-N-Out Control)        |  Paper Weight v1.0             |     [Download](https://huggingface.co/uva-cv-lab/FrameINO_CogVideoX_Stage2_MotionINO_v1.0)      |
 | Wan2.2-TI2V-5B  (Stage 1 - Motion Control)                     |  New Weight v1.5 on 704P       |     [Download](https://huggingface.co/uva-cv-lab/FrameINO_Wan2.2_5B_Stage1_Motion_v1.5)         |
 | Wan2.2-TI2V-5B  (Stage 2 - Motion + In-N-Out Control)          |  New Weight v1.5 on 704P       |     [Download](https://huggingface.co/uva-cv-lab/FrameINO_Wan2.2_5B_Stage2_MotionINO_v1.5)      |
+| Wan2.2-TI2V-5B  (Stage 2 - Motion + In-N-Out Control)          |  New Weight v1.6 on Arbitrary Resolution |     [Download](https://huggingface.co/uva-cv-lab/FrameINO_Wan2.2_5B_Stage2_MotionINO_v1.6)      |
 
 
 
