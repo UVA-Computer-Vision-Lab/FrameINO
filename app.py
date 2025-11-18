@@ -46,15 +46,14 @@ MARKDOWN = \
             </h2> \
         
         <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; margin-bottom: 1rem;">
-            <!-- 第一行按钮 -->
             <a href="https://arxiv.org/abs/2505.21491" target="_blank"
             style="display: inline-flex; align-items: center; padding: 0.5rem 1rem; background-color: #f0f0f0; /* 浅灰色背景 */ color: #333; /* 深色文字 */ text-decoration: none; border-radius: 9999px; font-weight: 500; transition: background-color 0.3s;">
-                <span style="margin-right: 0.5rem;">📄</span> <!-- 使用文档图标 -->
+                <span style="margin-right: 0.5rem;">📄</span> 
                 <span>Paper</span>
             </a>
             <a href="https://github.com/UVA-Computer-Vision-Lab/FrameINO" target="_blank"
             style="display: inline-flex; align-items: center; padding: 0.5rem 1rem; background-color: #f0f0f0; color: #333; text-decoration: none; border-radius: 9999px; font-weight: 500; transition: background-color 0.3s;">
-                <span style="margin-right: 0.5rem;">💻</span> <!-- 使用电脑图标 -->
+                <span style="margin-right: 0.5rem;">💻</span> 
                 <span>GitHub</span>
             </a>
             <a href="https://uva-computer-vision-lab.github.io/Frame-In-N-Out" target="_blank"
@@ -72,9 +71,9 @@ MARKDOWN = \
        
     </div>
 
-    Frame In-N-Out expands the first frame condition to a broader canvas region by setting top left and bottom right expansion amount, 
-    and users could provide motion trajectory to existing objects or provide breaking new identity to enter the scene with motion trajectory, or both. <br>
-    The model we used here is <b>Wan2.2-5B</b> trained on our Frame In-N-Out control mechanism.
+    Frame In-N-Out extends the first-frame conditioning to a larger spatial canvas by specifying top-left and bottom-right expansion offsets. 
+    Further, it allows users to assign motion trajectories to existing objects, introduce new identities that enter the scene with their own trajectories, or both.<br>
+    The model we used here is [<b>Wan2.2-5B</b> V1.6](https://huggingface.co/uva-cv-lab/FrameINO_Wan2.2_5B_Stage2_MotionINO_v1.6) trained on our Frame In-N-Out control mechanism.
 
 
     <br>
@@ -86,7 +85,7 @@ MARKDOWN = \
     ❗️❗️❗️Instruction Steps:<br>
     1️⃣ Upload your first frame image. Set the size you want to resize to for <b>Resized Height for Input Image</b> and <b>Resized Width for Input Image</b>.  <br> 
     2️⃣ Set your <b>canvas top left</b> and <b>bottom right expansion</b>. The combined height and width should be the multiplier of 32. <br>
-        PLEASE ENSURE that <b>Canvas HEIGHT = 704</b> and <b>Canvas WIDTH = 1280</b> for the best performance (current training resolution). <br>
+        Recommend <b>Canvas HEIGHT = 704</b> and <b>Canvas WIDTH = 1280</b> for the best performance (Pre-trained training Resolution). <br>
     3️⃣ Click <b>Build the Canvas</b>.  <br>
     4️⃣ Provide the trajectory of the main object in the canvas by clicking on the <b>Expanded Canvas</b>. <br>
     5️⃣ Provide the ID reference image and its trajectory (optional). Also, write a detailed <b>text prompt</b>. <br>
@@ -119,25 +118,25 @@ train_transforms = transforms.Compose(
 
 ######################################################## CogVideoX #################################################################
 
-# Path Setting
-model_code_name = "CogVideox"
-base_model_id = "zai-org/CogVideoX-5b-I2V"  
-transformer_ckpt_path = "uva-cv-lab/FrameINO_CogVideoX_Stage2_MotionINO_v1.0"
+# # Path Setting
+# model_code_name = "CogVideox"
+# base_model_id = "zai-org/CogVideoX-5b-I2V"  
+# transformer_ckpt_path = "uva-cv-lab/FrameINO_CogVideoX_Stage2_MotionINO_v1.0"
 
-# Load Model
-transformer = CogVideoXTransformer3DModel.from_pretrained(transformer_ckpt_path, torch_dtype=torch.float16)
-text_encoder = T5EncoderModel.from_pretrained(base_model_id, subfolder="text_encoder", torch_dtype=torch.float16)
-vae = AutoencoderKLCogVideoX.from_pretrained(base_model_id, subfolder="vae", torch_dtype=torch.float16)
+# # Load Model
+# transformer = CogVideoXTransformer3DModel.from_pretrained(transformer_ckpt_path, torch_dtype=torch.float16)
+# text_encoder = T5EncoderModel.from_pretrained(base_model_id, subfolder="text_encoder", torch_dtype=torch.float16)
+# vae = AutoencoderKLCogVideoX.from_pretrained(base_model_id, subfolder="vae", torch_dtype=torch.float16)
 
-# Create pipeline and run inference
-pipe = CogVideoXImageToVideoPipeline.from_pretrained(
-            base_model_id,
-            text_encoder = text_encoder,
-            transformer = transformer,
-            vae = vae,
-            torch_dtype = torch.float16,
-        )
-pipe.enable_model_cpu_offload()
+# # Create pipeline and run inference
+# pipe = CogVideoXImageToVideoPipeline.from_pretrained(
+#             base_model_id,
+#             text_encoder = text_encoder,
+#             transformer = transformer,
+#             vae = vae,
+#             torch_dtype = torch.float16,
+#         )
+# pipe.enable_model_cpu_offload()
 
 #####################################################################################################################################
 
@@ -149,7 +148,7 @@ pipe.enable_model_cpu_offload()
 # Path Setting
 model_code_name = "Wan"
 base_model_id = "Wan-AI/Wan2.2-TI2V-5B-Diffusers"  
-transformer_ckpt_path = "uva-cv-lab/FrameINO_Wan2.2_5B_Stage2_MotionINO_v1.5"
+transformer_ckpt_path = "uva-cv-lab/FrameINO_Wan2.2_5B_Stage2_MotionINO_v1.6"
 
 
 # Load model
@@ -267,6 +266,7 @@ def on_example_click(
 
 
 
+
 def build_canvas(input_image_path, resized_height, resized_width, top_left_height, top_left_width, bottom_right_height, bottom_right_width):
 
     # Init
@@ -302,16 +302,28 @@ def build_canvas(input_image_path, resized_height, resized_width, top_left_heigh
 
     # Read the original image and preprare the placeholder
     first_frame_img = np.uint8(np.asarray(Image.open(input_image_path)))          # NOTE: this is BGR form, be careful for the later cropping process for ID Reference
-    # print("first_frame_img shape is ", first_frame_img.shape)
+    print("first_frame_img shape is ", first_frame_img.shape)
+
 
     # Resize to a uniform resolution
     first_frame_img = cv2.resize(first_frame_img, (resized_width, resized_height), interpolation = cv2.INTER_AREA)
+    print("first_frame_img is resized to", first_frame_img.shape)
+
 
     # Expand to Outside Region to form the Canvas
     expand_height = resized_height + top_left_height + bottom_right_height
     expand_width = resized_width + top_left_width + bottom_right_width
     inference_canvas = np.uint8(np.zeros((expand_height, expand_width, 3)))       # Whole Black Canvas, same as other inference
     visual_canvas = np.full((expand_height, expand_width, 3), canvas_color, dtype=np.uint8)
+    print("Init Visual Canvas shape is", visual_canvas.shape)
+    print("Init Inference Canvs shape is", inference_canvas.shape)
+
+
+    # Sanity Check 
+    if expand_height % 32 != 0:
+        raise gr.Error("The Height of resized_height + top_left_height + bottom_right_height must be divisible by 32!")
+    if expand_width % 32 != 0:
+        raise gr.Error("The Width of resized_width + top_left_width + bottom_right_width must be divisible by 32!")
 
 
     # Sanity Check 
@@ -330,7 +342,7 @@ def build_canvas(input_image_path, resized_height, resized_width, top_left_heigh
 
     # Resize to the uniform height and width
     visual_canvas = cv2.resize(visual_canvas, (uniform_width, uniform_height), interpolation = cv2.INTER_AREA)
-
+    print("Visual Canvas resized to", visual_canvas.shape)
 
 
     # Return the visual_canvas (for visualizaiton) and canvas map
