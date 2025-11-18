@@ -114,10 +114,10 @@ Gradio Interactive demo is available by
   python app.py
 ```
 
-<!-- The Gradio Demo online is availabe at: -->
-This will costs 21GB of memory in average (peak: 26GB). We will also create a folder starts with **tmp_app_example_** in your local folder. There, you could find all conditions (including segmented ID and the padded generation result in the full canvas).
+<!-- The Gradio Demo online is available at: -->
+This will cost 21GB of memory on average (peak: 26GB). We will also create a folder that starts with **tmp_app_example_** in your local folder. There, you could find all conditions (including segmented ID and the padded generation result in the full canvas).
 
-NOTE: This will automatically download pretrained weight to the HF cache and use our v1.5 Wan2.2-5B weight by default.
+NOTE: This will automatically download pretrained weights to the HF cache and use our released V1.6 Wan2.2-5B weight by default, which supports arbitrary resolution better compared to V1.5 version.
 
 NOTE: We recommend to open **Running on public URL** choice, which is more stable compared to the local URL option.
 
@@ -134,7 +134,7 @@ For the v1.5 version, we curate the dataset again, by optimizing the scene cut s
 
 | Model                                                          | Description                    | Huggingface                                                                                     |
 |--------------------------------------------------------------- | -------------------------------| ------------------------------------------------------------------------------------------------| 
-| CogVideoX-I2V-5B V1.0 (Stage 1 - Motion Control)               |  Paper Weight v1.0             |     [Download](https://huggingface.co/uva-cv-lab/FrameINO_CogVideoX_Stage1_Motion_v1.0)         |
+| CogVideoX-I2V-5B  (Stage 1 - Motion Control)                   |  Paper Weight v1.0             |     [Download](https://huggingface.co/uva-cv-lab/FrameINO_CogVideoX_Stage1_Motion_v1.0)         |
 | CogVideoX-I2V-5B  (Stage 2 - Motion + In-N-Out Control)        |  Paper Weight v1.0             |     [Download](https://huggingface.co/uva-cv-lab/FrameINO_CogVideoX_Stage2_MotionINO_v1.0)      |
 | Wan2.2-TI2V-5B  (Stage 1 - Motion Control)                     |  New Weight v1.5 on 704P       |     [Download](https://huggingface.co/uva-cv-lab/FrameINO_Wan2.2_5B_Stage1_Motion_v1.5)         |
 | Wan2.2-TI2V-5B  (Stage 2 - Motion + In-N-Out Control)          |  New Weight v1.5 on 704P       |     [Download](https://huggingface.co/uva-cv-lab/FrameINO_Wan2.2_5B_Stage2_MotionINO_v1.5)      |
