@@ -10,6 +10,7 @@
 
 [![Paper](https://img.shields.io/badge/arXiv-Paper-b31b1b?logo=arxiv&logoColor=white)](https://arxiv.org/abs/2505.21491)
 [![Website](https://img.shields.io/badge/Project-Website-pink?logo=googlechrome&logoColor=white)](https://uva-computer-vision-lab.github.io/Frame-In-N-Out/)
+<a href="https://huggingface.co/spaces/HikariDawn/FrameINO"><img src="https://img.shields.io/static/v1?label=%F0%9F%A4%97%20HF%20Space&message=Online+Demo&color=orange"></a>
 <a href="https://huggingface.co/collections/uva-cv-lab/frame-in-n-out"><img src="https://img.shields.io/static/v1?label=%F0%9F%A4%97%20Hugging%20Face&message=Model+with+Data&color=orange"></a>
 
 </div>
@@ -32,7 +33,7 @@ We propose Frame In-N-Out, a controllable Image-to-Video generation Diffusion Tr
 - [x] Release the Evaluation Code and Metrics
 - [x] Release the Training Code with a short sample dataset
 - [x] Release Arbitrary Resolution-trained Wan2.2 weights, denoted as V1.6
-- [ ] HF Space Demo
+- [x] HF Space Demo
 - [ ] Release the Pre-Processing Code and possibly the full Processed metadata
 
 :star: **If you like Frame In-N-Out, please help ⭐⭐star⭐⭐ this repo. Thanks!** :hugs:
@@ -114,7 +115,7 @@ Gradio Interactive demo is available by
   python app.py
 ```
 
-<!-- The Gradio Demo online is available at: -->
+The Gradio Demo online is available [here](https://huggingface.co/spaces/HikariDawn/FrameINO). 
 This will cost 21GB of memory on average (peak: 26GB). We will also create a folder that starts with **tmp_app_example_** in your local folder. There, you could find all conditions (including segmented ID and the padded generation result in the full canvas).
 
 NOTE: This will automatically download pretrained weights to the HF cache and use our released V1.6 Wan2.2-5B weight by default, which supports arbitrary resolution better compared to V1.5 version.
