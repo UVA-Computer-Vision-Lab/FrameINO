@@ -352,14 +352,14 @@ def build_canvas(input_image_path, resized_height, resized_width, top_left_heigh
 
 
 
-def process_points(traj_list, num_frames=49):
+def process_points(traj_list, num_frames=81):
 
 
     if len(traj_list) < 2:     # First point
         return [traj_list[0]] * num_frames
 
     elif len(traj_list) >= num_frames:
-        raise gr.Info("The number of trajectory points is more than 49 limits, we will do cropping!")
+        raise gr.Info("The number of trajectory points is more than limits, we will do cropping!")
         skip = len(traj_list) // num_frames
         return traj_list[::skip][: num_frames - 1] + traj_list[-1:]
 

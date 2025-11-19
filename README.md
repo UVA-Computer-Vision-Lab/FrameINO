@@ -116,7 +116,8 @@ Gradio Interactive demo is available by
 ```
 
 The Gradio Demo online is available [here](https://huggingface.co/spaces/HikariDawn/FrameINO). 
-This will cost 21GB of memory on average (peak: 26GB). We will also create a folder that starts with **tmp_app_example_** in your local folder. There, you could find all conditions (including segmented ID and the padded generation result in the full canvas).
+This will cost 21GB of memory on average (peak: 26GB) with the enable_model_cpu_offload (but slightly slower). 
+We will create a folder that starts with **tmp_app_example_** in your local folder. There, you could find all conditions (including segmented ID and the padded generation result in the full canvas).
 
 NOTE: This will automatically download pretrained weights to the HF cache and use our released V1.6 Wan2.2-5B weight by default, which supports arbitrary resolution better compared to V1.5 version.
 
