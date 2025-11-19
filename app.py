@@ -20,16 +20,16 @@ os.environ["HF_HUB_ENABLE_HF_TRANSFER"] = "1"
 import torch
 from torch.utils.data import DataLoader, Dataset
 from torchvision import transforms
-from diffusers import AutoencoderKLCogVideoX
-from transformers import T5EncoderModel
+# from diffusers import AutoencoderKLCogVideoX
+# from transformers import T5EncoderModel
 from diffusers.utils import export_to_video, load_image
 
 
 # Import files from the local fodler
 root_path = os.path.abspath('.')
 sys.path.append(root_path)
-from pipelines.pipeline_cogvideox_i2v_motion_FrameINO import CogVideoXImageToVideoPipeline
-from architecture.cogvideox_transformer_3d import CogVideoXTransformer3DModel
+# from pipelines.pipeline_cogvideox_i2v_motion_FrameINO import CogVideoXImageToVideoPipeline
+# from architecture.cogvideox_transformer_3d import CogVideoXTransformer3DModel
 from data_loader.video_dataset_motion import VideoDataset_Motion
 from architecture.transformer_wan import WanTransformer3DModel
 from pipelines.pipeline_wan_i2v_motion_FrameINO import WanImageToVideoPipeline
