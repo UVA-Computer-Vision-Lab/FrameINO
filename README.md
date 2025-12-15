@@ -34,7 +34,7 @@ We propose Frame In-N-Out, a controllable Image-to-Video generation Diffusion Tr
 - [x] Release the Training Code with a short sample dataset
 - [x] Release Arbitrary Resolution-trained Wan2.2 weights, denoted as V1.6
 - [x] HF Space Demo
-- [ ] Release the Pre-Processing Code and possibly the full Processed metadata
+- [x] Release the Pre-Processing Code
 
 :star: **If you like Frame In-N-Out, please help ⭐⭐star⭐⭐ this repo. Thanks!** :hugs:
 
@@ -151,7 +151,8 @@ For the v1.5 version, we curate the dataset again, by optimizing the scene cut s
 
 ## <a name="dataset_curation"></a> Dataset Curation 🧩
 
-TBD. We might use a separate github repo to collect all solutions because curation involves too many different packages and setup.
+The preprocessing code is located in the `preprocess/` subdirectory.
+<br>
 
 For a small quick **mini**-dataset (demo training dataset), you can download by: 
 ```shell
@@ -161,7 +162,7 @@ For a small quick **mini**-dataset (demo training dataset), you can download by:
 This dataset includes 300 train videos and the corresponding csv label files (text prompt, motion traj, filtering criteria) for data loading (as well as 20 videos for validation in training). 
 The evaluation dataset for both Frame In and Frame Out benchmark can be found inside here.
 
-NOTE: Please log in to our [huggingface page](https://huggingface.co/datasets/uva-cv-lab/FrameINO_data) and agree to the Gated Access.
+**NOTE**: Please log in to our [huggingface page](https://huggingface.co/datasets/uva-cv-lab/FrameINO_data) and agree to the Gated Access.
 
 
 
@@ -219,7 +220,7 @@ For CogVideoX:
 # 1 GPU
 python train_code/train_cogvideox_motion_FrameINO.py    
 
-# 4GPU (Our experiment Setting).  Change the XXXXX to your port (like 32214)
+# 4GPU (Our Experiment Setting).  Change the XXXXX to your port (like 32214)
 accelerate launch --config_file config/accelerate_config_4GPU.json --main_process_port XXXXX train_code/train_cogvideox_motion_FrameINO.py
 ```
 
