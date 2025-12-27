@@ -25,9 +25,6 @@ def mass_evaluation(data_parent_path, evaluation_metrics, common_target_height=2
     assert(is_frame_in is not None)
 
 
-    # FID FVD Setting
-    Frechet_height, Frechet_width = common_target_height, common_target_width      
-
     
     # Evaluation
     print("Start Evaluation")
@@ -71,7 +68,7 @@ def mass_evaluation(data_parent_path, evaluation_metrics, common_target_height=2
 if __name__ == "__main__":
 
     # Basic Setting
-    data_parent_path = "/PATH/TO/GENRATED/RESULTS"               # Path to the generated results
+    data_parent_path = "/PATH/TO/GENERATED/RESULTS"               # Path to the generated results
     common_target_height, common_target_width, test_num_frames = 256, 384, 49       # test_num_frames we use 49 for FrameIn; 14 for Frame Out (due to base model constrained) ; BTW, VLM only use 14 frames (due to compute concern)
     is_frame_in = True     # If it is not FrameIn, then it is FrameOut Setting; Please set this based on the needs
 
