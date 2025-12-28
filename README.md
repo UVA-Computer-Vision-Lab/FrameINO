@@ -207,21 +207,21 @@ Use **--use_8BitAdam True** for 8Bit Adam (based on your hardware support)
 
 For Wan2.2-5B:
 ```shell
-# 1 GPU
-python train_code/train_wan_motion_FrameINO.py    
-
-# 4GPU (Our experiment Setting).  Change the XXXXX to your port (like 32214)
-accelerate launch --config_file config/accelerate_config_4GPU.json --main_process_port XXXXX train_code/train_wan_motion_FrameINO.py
+    # 1 GPU
+    python train_code/train_wan_motion_FrameINO.py    
+    
+    # 4GPU (Our experiment Setting).  Change the XXXXX to your port (like 32214)
+    accelerate launch --config_file config/accelerate_config_4GPU.json --main_process_port XXXXX train_code/train_wan_motion_FrameINO.py
 ```
 
 
 For CogVideoX:
 ```shell
-# 1 GPU
-python train_code/train_cogvideox_motion_FrameINO.py    
-
-# 4GPU (Our Experiment Setting).  Change the XXXXX to your port (like 32214)
-accelerate launch --config_file config/accelerate_config_4GPU.json --main_process_port XXXXX train_code/train_cogvideox_motion_FrameINO.py
+    # 1 GPU
+    python train_code/train_cogvideox_motion_FrameINO.py    
+    
+    # 4GPU (Our Experiment Setting).  Change the XXXXX to your port (like 32214)
+    accelerate launch --config_file config/accelerate_config_4GPU.json --main_process_port XXXXX train_code/train_cogvideox_motion_FrameINO.py
 ```
 
 Use **--use_8BitAdam True** for 8Bit Adam (based on your hardware support)
@@ -232,7 +232,7 @@ Use **--use_8BitAdam True** for 8Bit Adam (based on your hardware support)
 
 The evaluation dataloader is slightly different from the training version before. 
 The dataloader we use in this stage is based on our paper setting (using the v1.0 paper weight at the same time). 
-The evaluation dataset can be downlaoded based on the instruciton from [Dataset Curation](#dataset_curation).
+The evaluation dataset can be downlaoded from [huggingface page](https://huggingface.co/datasets/uva-cv-lab/FrameINO_data), same HF you used from [Dataset Curation](#dataset_curation) section above.
 
 
 
