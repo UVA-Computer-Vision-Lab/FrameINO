@@ -119,7 +119,7 @@ The Gradio Demo online is available [here](https://huggingface.co/spaces/HikariD
 This will cost 21GB of memory on average (peak: 26GB) with the enable_model_cpu_offload (but slightly slower). 
 We will create a folder that starts with **tmp_app_example_** in your local folder. There, you could find all conditions (including segmented ID and the padded generation result in the full canvas).
 
-NOTE: This will automatically download pretrained weights to the HF cache and use our released V1.6 Wan2.2-5B weight by default, which supports arbitrary resolution better compared to V1.5 version.
+NOTE: This will automatically download pretrained weights to the HF cache and use our released [**Frame In-N-Out V1.6 on Wan2.2-5B**](https://huggingface.co/uva-cv-lab/FrameINO_Wan2.2_5B_Stage2_MotionINO_v1.6) weight by default, which supports arbitrary resolution better compared to V1.5 version.
 
 NOTE: We recommend to open **Running on public URL** choice, which is more stable compared to the local URL option.
 
