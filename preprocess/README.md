@@ -14,7 +14,7 @@
 
 
 
-1. Provide OpenVid-1M example of the dataset download from HuggingFace
+1. Provide OpenVid-1M example of the dataset download from HuggingFace (Please check the code carefully to adapt your environment!)
 ```shell
     # Dataset Download
     python preprocess/dataset_download/openvid_download.py --start_zip_idx 0 --end_zip_idx 186 --output_directory /PATH/TO/OpenVid

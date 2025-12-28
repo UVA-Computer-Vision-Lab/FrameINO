@@ -13,7 +13,7 @@ def download_files(output_directory, start_zip_idx, end_zip_idx):
     error_log_path = os.path.join(zip_folder, "download_log.txt")
 
 
-    # NOTE: 因为size有限，所以这里下载的量控制了一下
+    # Choose the right size range
     for i in range(start_zip_idx, end_zip_idx):     # Max is 186
 
         url = f"https://huggingface.co/datasets/nkp37/OpenVid-1M/resolve/main/OpenVid_part{i}.zip"
