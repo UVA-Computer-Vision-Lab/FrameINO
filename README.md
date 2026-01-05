@@ -112,7 +112,7 @@ pip install -r requirements.txt
 ## <a name="fast_inference"></a> Fast Inference ⚡⚡⚡
 Gradio Interactive demo is available by 
 ```shell
-  python app.py
+python app.py
 ```
 
 The Gradio Demo online is available [here](https://huggingface.co/spaces/HikariDawn/FrameINO). 
@@ -156,9 +156,10 @@ The preprocessing code is located in the `preprocess/` subdirectory.
 
 For a small quick **mini**-dataset (demo training dataset), you can download by: 
 ```shell
-  # Recommend to set --local-dir as FrameINO_data, which is the default fixed dir in most files
-  hf download uva-cv-lab/FrameINO_data --repo-type dataset --local-dir FrameINO_data
+# Recommend to set --local-dir as FrameINO_data, which is the default fixed dir in most files
+hf download uva-cv-lab/FrameINO_data --repo-type dataset --local-dir FrameINO_data
 ```
+
 This dataset includes 300 train videos and the corresponding csv label files (text prompt, motion traj, filtering criteria) for data loading (as well as 20 videos for validation in training). 
 The evaluation dataset for both Frame In and Frame Out benchmark can be found inside here.
 
@@ -207,21 +208,21 @@ Use **--use_8BitAdam True** for 8Bit Adam (based on your hardware support)
 
 For Wan2.2-5B:
 ```shell
-    # 1 GPU
-    python train_code/train_wan_motion_FrameINO.py    
-    
-    # 4GPU (Our experiment Setting).  Change the XXXXX to your port (like 32214)
-    accelerate launch --config_file config/accelerate_config_4GPU.json --main_process_port XXXXX train_code/train_wan_motion_FrameINO.py
+# 1 GPU
+python train_code/train_wan_motion_FrameINO.py    
+
+# 4GPU (Our experiment Setting).  Change the XXXXX to your port (like 32214)
+accelerate launch --config_file config/accelerate_config_4GPU.json --main_process_port XXXXX train_code/train_wan_motion_FrameINO.py
 ```
 
 
 For CogVideoX:
 ```shell
-    # 1 GPU
-    python train_code/train_cogvideox_motion_FrameINO.py    
-    
-    # 4GPU (Our Experiment Setting).  Change the XXXXX to your port (like 32214)
-    accelerate launch --config_file config/accelerate_config_4GPU.json --main_process_port XXXXX train_code/train_cogvideox_motion_FrameINO.py
+# 1 GPU
+python train_code/train_cogvideox_motion_FrameINO.py    
+
+# 4GPU (Our Experiment Setting).  Change the XXXXX to your port (like 32214)
+accelerate launch --config_file config/accelerate_config_4GPU.json --main_process_port XXXXX train_code/train_cogvideox_motion_FrameINO.py
 ```
 
 Use **--use_8BitAdam True** for 8Bit Adam (based on your hardware support)
@@ -238,13 +239,13 @@ The evaluation dataset can be downlaoded from [huggingface page](https://hugging
 
 For Frame In:
 ```shell
-  python test_code/run_cogvideox_FrameIn_mass_evaluation.py
+python test_code/run_cogvideox_FrameIn_mass_evaluation.py
 ```
 Please check **Frequently Changed Setting** inside the code to double-check if your setting is aligned (like the pre-trained model path and the evaluation dataset).
  
 For Frame Out:
 ```shell
-  python test_code/run_cogvideox_FrameOut_mass_evaluation.py
+python test_code/run_cogvideox_FrameOut_mass_evaluation.py
 ```
 Please check **Frequently Changed Setting** inside the code to double-check if your setting is aligned (like the pre-trained model path and the evaluation dataset).
 
